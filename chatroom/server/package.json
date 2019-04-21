@@ -1,0 +1,20 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vemofile.js",
+  "scripts": {
+    "start": "vemo dev",
+    "dist": "pm2 start ./node_modules/@vemo/cli/ --name=websocket --env=production",
+    "vemo": "vemo"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@cloudbase/jwt-sdk": "latest",
+    "@vemo/cli": "latest",
+    "tcb-admin-node": "^1.4.6",
+    "underscore": "^1.9.1"
+  },
+  "devDependencies": {}
+}

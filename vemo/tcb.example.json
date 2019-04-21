@@ -1,0 +1,15 @@
+{
+    "common": {
+        "server": {
+            "host": "在这里填写机器 IP",
+            "password": "在这里填写 SSH 登陆机器的密码"
+        }
+    },
+    "deploys": [
+        {
+            "name": "vemo",
+            "path": "./",
+            "type": "node"
+        }
+    ]
+}

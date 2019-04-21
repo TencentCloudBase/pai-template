@@ -1,0 +1,18 @@
+{
+  "name": "vemo-helloworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vemofile.js",
+  "scripts": {
+    "start": "vemo dev",
+    "dist": "pm2 start ./node_modules/@vemo/cli/ --name=http --env=production",
+    "vemo": "vemo"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vemo/cli": "latest",
+    "underscore": "^1.9.1"
+  },
+  "devDependencies": {}
+}

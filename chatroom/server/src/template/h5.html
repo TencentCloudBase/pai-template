@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <title>PAI 的聊天室</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div id="page">
+        <div class="room-container">
+            <div id="room-name">
+                <div>Room Name: <span class="name"></span> User Name:  <span class="user"></span></div>
+            </div>
+            <div id="wrapper1">
+                <ul id="messages"></ul>
+            </div>
+            <!-- <div id="wrapper2">
+                <div>Room List</div>
+                <ul id="room-list">
+
+                </ul>
+            </div> -->
+            <div>
+                <form id="chat-room" action="javascript:void(0)">
+                    <input id="message" />
+                    <button id="send">发送</button>
+                </form>
+            </div>
+        </div>
+        <div class="join-container">
+            <form id="join-room" action="javascript:void(0)">
+                <input id="roomID" placeholder="房间名（默认值：Lobby）" />
+                <button id="join">加入</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./config/index.js"></script>
+    <script src="./socket.io.js"></script>
+    <script src="/jquery-1.11.1.js"></script>
+    <script>
+        let socket = null;
+        let wsHost = `${window.location.host}`;
+
+        if (!!~wsHost.indexOf('localhost')) {
+            wsHost = `http://${wsHost}/ws`;
+        }
+        else {
+            wsHost = `https://${wsHost}/ws`;
+        }
+
+        $('#join').on('click', async () => {
+            socket = io(wsHost, {
+                query: {
+                    token: token
+                }
+            });
+
+            let roomInput = $('#roomID');
+            let roomID = roomInput.val() || 'Lobby';
+            roomInput.val('');
+
+            processMessage(socket);
+            sendMessage(socket);
+
+            try {
+                socket.emit('join-room', roomID);
+                updateCurrentRoom(roomID);
+            }
+            catch(e) {
+                alert(e);
+            }
+            $('.join-container').hide();
+        });
+
+
+    </script>
+    <script>
+        function updateCurrentRoom(roomID) {
+            $('#room-name .name').text(roomID);
+        }
+
+        function updateUserName(username) {
+            $('#room-name .user').text(username);
+        }
+
+        function sendMessage(socket) {
+            $('#send').on('click', async () => {
+                let msgInput = $('#message');
+                let message = msgInput.val();
+                msgInput.val('');
+                socket.emit('message', message)
+            });
+        }
+
+        function processMessage(socket) {
+            socket.on('message', (data) => {
+                let nickName = data.nickName;
+                let type = data.type;
+                let value = data.value;
+                let isSelf = data.isSelf;
+
+                switch (type) {
+                    case 'join': {
+                        $('#messages').append($('<li class="new-user"></li>').text(`System Message: ${nickName} ${value}`));
+
+                        if (isSelf) {
+                            updateUserName(nickName);
+                        }
+
+                        break;
+                    }
+                    case 'exit': {
+                        $('#messages').append($('<li class="exit-user"></li>').text(`System Message: ${nickName} ${value}`));
+                        break;
+                    }
+                    case 'message': {
+                        let obj = null;
+
+                        if (isSelf) {
+                            obj = $('#messages').append($('<li class="chat-message right"><span class="text"></span><img class="avatar" src="' + data.avatarUrl + '" /></li>'));
+                        }
+                        else {
+                            obj = $('#messages').append($('<li class="chat-message left"><img class="avatar" src="' + data.avatarUrl + '" /><span class="text"></span></li>'));
+                        }
+
+                        $(obj).children('.chat-message').children('.text').last().text(value);
+                        break;
+                    }
+                }
+            })
+        }
+    </script>
+  </body>
+</html>
