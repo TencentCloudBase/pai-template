@@ -1,7 +1,4 @@
 async function leaveRoom(socket, db) {
-    console.log('ws')
-    console.log(process.env.TENCENTCLOUD_SECRETID)
-    console.log(process.env.TENCENTCLOUD_SECRETKEY)
     try {
         // 离开房间，从房间中将用户自己删除，如果再没有用户了，将房间也删除
         let user = socket.user

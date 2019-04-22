@@ -49,7 +49,7 @@ npm start
 
 * 更改 `client/config/index.js` 中的链接，将其改成生产环境的地址。
 
-* 基于 `tcb.example.json` 创建 `tcb.json` 配置文件，然后填入机器的 `IP` 和 `SSH` 登陆密码。然后运行以下命令进行部署。
+* 基于 `tcb.example.json` 创建 `tcb.json` 配置文件，然后填入机器的 `IP` 和 `SSH` 登陆密码。
 
 * 运行以下命令，将服务部署到云主机
 
