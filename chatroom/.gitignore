@@ -1,2 +1,2 @@
 node_modules
-./server/src/config/index.js
+server/src/static/config/index.js
