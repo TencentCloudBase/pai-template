@@ -4,7 +4,8 @@
             "name": "tcb-auth",
             "path": "./cloud/functions/tcb-auth",
             "type": "function",
-            "envId": "test-anzm1"
+            "envId": "这里填写云开发环境ID",
+            "override": true
         },
         {
             "name": "vemo",
