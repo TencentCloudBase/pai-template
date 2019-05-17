@@ -5,13 +5,13 @@
   "main": "vemofile.js",
   "scripts": {
     "start": "vemo dev",
-    "dist": "pm2 start ./node_modules/@vemo/cli/ --name=http --env=production",
+    "dist": "pm2 start ./node_modules/@vemo/cli/ --name=vemo --env=production",
     "vemo": "vemo"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@vemo/cli": "^0.0.21",
+    "@vemo/cli": "^0.0.29",
     "underscore": "^1.9.1"
   },
   "devDependencies": {}

@@ -5,14 +5,14 @@
   "main": "vemofile.js",
   "scripts": {
     "start": "vemo dev",
-    "dist": "pm2 start ./node_modules/@vemo/cli/ --name=websocket --env=production",
+    "dist": "pm2 start ./node_modules/@vemo/cli/ --name=chatroom --env=production",
     "vemo": "vemo"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@cloudbase/jwt-sdk": "latest",
-    "@vemo/cli": "^0.0.21",
+    "@vemo/cli": "^0.0.29",
     "tcb-admin-node": "^1.4.6",
     "underscore": "^1.9.1"
   },
