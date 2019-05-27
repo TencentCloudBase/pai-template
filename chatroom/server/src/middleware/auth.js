@@ -11,7 +11,11 @@ module.exports = (socket, next) => {
     tcbJwt.init(socket).then(() => {
         next()
     }).catch((e) => {
-        console.error(e.message)
-        next(new Error(e.message))
+        let error = {
+            code: e.code,
+            message: e.message || '鉴权错误'
+        }
+        console.log(`[code:${error.code}] message:${error.message}`)
+        next(error)
     })
 }

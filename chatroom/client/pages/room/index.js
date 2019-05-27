@@ -58,6 +58,7 @@ Page({
     // token校验报错，重新登陆
     this.socket.on('error', (err) => {
       if (err) {
+        console.log(err)
         wx.clearStorageSync('tcb-token')
         wx.showToast({
           title: `${err}`,
