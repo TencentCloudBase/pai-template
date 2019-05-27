@@ -3,9 +3,19 @@
 const TcbJwt = require('@cloudbase/jwt-sdk')
 
 module.exports = (socket, next) => {
+    let tcbConfig = {}
+    try{
+        const vemofile = require('../../vemofile')
+        if(vemofile && vemofile.cloudbase && vemofile.cloudbase.env){
+            tcbConfig.env = vemofile.cloudbase.env
+        }
+    }
+    catch(e){
+        console.log("can't not find vemofile")
+    }
     let tcbJwt = new TcbJwt({
         type: 'websocket',
-        tcb: socket.tcb,
+        tcbConfig,
     })
 
     tcbJwt.init(socket).then(() => {

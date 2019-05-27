@@ -4,7 +4,9 @@ const authMiddleware = require('./src/middleware/auth')
 module.exports = {
     'root': path.resolve('./src'),
     'static': true,
-    'cloudbase': true, // 启动云开发中间件
+    'cloudbase': {
+        // env: null
+    }, // 启动云开发中间件
     'socket': true, // 如果值为对象，则是 socket.io 的配置参数
     'routes': [
         {
