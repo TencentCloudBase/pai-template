@@ -16,7 +16,7 @@
 ## 初始化项目
 
 ```shell
-git clone https://github.com/lcxfs1991/pai-template.git
+git clone https://github.com/TencentCloudBase/pai-template.git
 
 ## 进入 koa demo 目录
 cd koa
@@ -64,7 +64,7 @@ tcb deploy --start
 ## 初始化项目
 
 ```shell
-git clone https://github.com/lcxfs1991/pai-template.git
+git clone https://github.com/TencentCloudBase/pai-template.git
 
 ## 进入 koa demo 目录
 cd koa

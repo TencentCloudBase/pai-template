@@ -29,7 +29,7 @@
 ## 初始化项目
 
 ```shell
-git clone https://github.com/lcxfs1991/pai-template.git
+git clone https://github.com/TencentCloudBase/pai-template.git
 
 ## 进入 vemo demo 目录
 cd vemo
@@ -75,7 +75,7 @@ tcb deploy
 ## 初始化项目
 
 ```shell
-git clone https://github.com/lcxfs1991/pai-template.git
+git clone https://github.com/TencentCloudBase/pai-template.git
 
 ## 进入 vemo demo 目录
 cd vemo

@@ -22,7 +22,7 @@
 ## 初始化项目
 
 ```shell
-git clone https://github.com/lcxfs1991/pai-template.git
+git clone https://github.com/TencentCloudBase/pai-template.git
 
 ## 进入 chatroom demo 的服务器端代码目录
 cd chatroom/server
