@@ -11,7 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@vemo/cli": "^0.0.29",
+    "@vemo/cli": "^0.0.30",
     "underscore": "^1.9.1"
   },
   "devDependencies": {}
