@@ -1,9 +1,9 @@
 {
-    "deploys": [
-        {
-            "name": "vemo",
-            "path": "./",
-            "type": "node"
-        }
-    ]
+  "deploys": [
+    {
+      "name": "vemo",
+      "path": "./",
+      "type": "node"
+    }
+  ]
 }
