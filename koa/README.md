@@ -4,8 +4,8 @@
 
 ## 前置条件
 
-* 安装 node.js 和 npm
-* git
+- 安装 node.js 和 npm
+- git
 
 ## 获取机器的 IP 和密码
 
@@ -46,14 +46,15 @@ npm i -g @cloudbase/cli
 ```shell
 tcb deploy --start
 ```
+
 # koa 入门案例
 
 基于 [koa](https://github.com/koajs/koa) 框架的 `hello world` 示例。
 
 ## 前置条件
 
-* 安装 node.js 和 npm
-* git
+- 安装 node.js 和 npm
+- git
 
 ## 获取机器的 IP 和密码
 
@@ -112,8 +113,4 @@ tcb deploy
 tcb deploy
 ```
 
-## 验证
-
-访问购买机器后分配好的域名，就能看到带有 `Hello World!` 字样的页面。
-
-![](https://main.qcloudimg.com/raw/d35b36607d5f02ee4b47b36a3401b0a9.png)
+访问 `/ping` 路径，可以看到 websocket 示例，点击 ping 按钮发送信息到 server 端，server 端收到消息立即返回 pong 以及 收到 ping 的次数，查看网络请求可以看具体的 socket 信息。
