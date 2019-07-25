@@ -1,11 +1,27 @@
-const Koa = require('koa')
-const app = new Koa()
-const port = 5000
+const Koa = require("koa");
+const app = new Koa();
+const port = 5000;
+const server = require("http").Server(app.callback());
+let socketio = require("socket.io")(server);
 
-app.use(async ctx => {
-  ctx.body = 'Hello World!'
+const routers = require("./routes/index");
+app.use(routers.routes());
+
+let ws = socketio.of("/ws");
+ws.on("connect", socket => {
+  console.log("connect, socket id: " + socket.id);
+  let count = 0;
+
+  socket.on("messagePing", data => {
+    count++;
+    socket.emit("messagePong", "receive " + count + " ping(s), response pong");
+  });
+
+  socket.on("disconnect", () => {
+    console.log("disconnect socket id: " + socket.id);
+  });
 });
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}!`)
+server.listen(port, () => {
+  console.log(`Listening on port ${port}!`);
 });
